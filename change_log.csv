@@ -1,0 +1,14 @@
+Change ID,Description,Impact,Status
+CR000,Loaded raw dataset,"1200 rows, 14 columns",Resolved
+CR001,Imputed missing 'CouponCode' values with explicit 'NONE' category (no coupon applied) instead of deleting rows,Preserved 309 records that would otherwise have been lost,Resolved
+CR002,Removed fully duplicated rows (identical across all columns),Removed 0 duplicate rows,Resolved
+CR003,Enforced uniqueness on 'OrderID' (kept first occurrence of any repeats),Removed 0 duplicate Order ID(s). Verified: 0% duplicate-ID error rate,Resolved
+CR004,Standardized 'Date' column to ISO 8601 format (YYYY-MM-DD),Converted all rows; 0 unparseable date(s) flagged. Verified: 0% date-format error rate,Resolved
+CR-CASE-Product,Standardized text casing in 'Product' to Title Case,0 value(s) corrected,Resolved
+CR-CASE-PaymentMethod,Standardized text casing in 'PaymentMethod' to Title Case,0 value(s) corrected,Resolved
+CR-CASE-OrderStatus,Standardized text casing in 'OrderStatus' to Title Case,0 value(s) corrected,Resolved
+CR-CASE-ReferralSource,Standardized text casing in 'ReferralSource' to Title Case,0 value(s) corrected,Resolved
+CR005,Enforced 2-decimal numeric precision on 'UnitPrice' and 'TotalPrice',Ensures consistent currency formatting across all records,Resolved
+CR006,Validated 'TotalPrice' = Quantity x UnitPrice for every row and recalculated any mismatches,0 row(s) corrected,Resolved
+CR007,Checked for non-positive Quantity/UnitPrice values,"0 suspicious row(s) found (flagged, none removed automatically)",Resolved
+CR008,Final verification gate,"Rows 1200->1200. 0% duplicate-ID rate, 0% bad-date rate, 0 nulls remaining.",Resolved
